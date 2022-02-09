@@ -52,6 +52,8 @@ jobs:
 
     - name: Configure docker for GCR
       run: |
+        cat ~/.docker/config.json
+        rm ~/.docker/config.json
         gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
         gcloud auth configure-docker gcr.io -q
         cat ~/.docker/config.json
