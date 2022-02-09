@@ -62,7 +62,8 @@ jobs:
 
     - name: Configure docker for GCR
       run: |
-        gcloud auth configure-docker --quiet
+        gcloud auth configure-docker gcr.io -q
+        cat ~/.docker/config.json
 
     # Push image to GCR to facilitate some environments that have rate limitation to docker hub, e.g. vSphere.
     - name: Publish container image to GCR
