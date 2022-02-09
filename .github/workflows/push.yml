@@ -56,12 +56,13 @@ jobs:
         #gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
         #gcloud iam service-accounts keys create keyfile.json --iam-account gcraccount@velero-gcp.iam.gserviceaccount.com
         #gcloud auth activate-service-account gcraccount@velero-gcp.iam.gserviceaccount.com --key-file=keyfile.json
+        docker pull busybox:1.35.0
+        docker tag busybox:1.35.0 gcr.io/velero-gcp/busybox:1.35.0
         gcloud auth configure-docker gcr.io -q
         cat ~/.docker/config.json
 
     # Push image to GCR to facilitate some environments that have rate limitation to docker hub, e.g. vSphere.
     - name: Publish container image to GCR
       run: |
-        docker pull busybox:1.35.0
-        docker tag busybox:1.35.0 gcr.io/velero-gcp/busybox:1.35.0
+
         docker push gcr.io/velero-gcp/busybox:1.35.0
