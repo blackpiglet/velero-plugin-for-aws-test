@@ -68,6 +68,6 @@ jobs:
     # Push image to GCR to facilitate some environments that have rate limitation to docker hub, e.g. vSphere.
     - name: Publish container image to GCR
       run: |
-        docker pull busybox:1.36.0
-        docker tag busybox:1.36.0 gcr.io/velero-gcp/busybox:1.36.0
-        docker push gcr.io/velero-gcp/busybox:1.36.0
+        docker pull busybox:1.35.0
+        docker tag busybox:1.35.0 gcr.io/velero-gcp/busybox:1.35.0
+        docker push gcr.io/velero-gcp/busybox:1.35.0
