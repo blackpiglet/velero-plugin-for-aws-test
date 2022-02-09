@@ -53,7 +53,8 @@ jobs:
     - name: Configure docker for GCR
       run: |
         gcloud auth login --brief --cred-file="${{ steps.auth.outputs.credentials_file_path }}"
-        gcloud auth configure-docker gcr.io -q
+        gcloud auth configure-docker gcr.io
+        cat ~/.docker/config.json
 
     # Push image to GCR to facilitate some environments that have rate limitation to docker hub, e.g. vSphere.
     - name: Publish container image to GCR
