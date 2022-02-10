@@ -59,7 +59,7 @@ jobs:
         #gcloud auth activate-service-account gcraccount@velero-gcp.iam.gserviceaccount.com --key-file=keyfile.json
         docker pull busybox:1.35.0
         docker tag busybox:1.35.0 gcr.io/velero-gcp/busybox:1.35.0
-        gcloud auth configure-docker gcr.io -q
+        #gcloud auth configure-docker gcr.io -q
         cat ~/.docker/config.json
         ls -al ~/.config/gcloud
 
