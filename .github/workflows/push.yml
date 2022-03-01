@@ -46,8 +46,7 @@ jobs:
       name: 'Authenticate to Google Cloud'
       uses: 'google-github-actions/auth@v0.6.0'
       with:
-        workload_identity_provider: 'projects/298797809281/locations/global/workloadIdentityPools/velero-pool/providers/velero-provider'
-        service_account: 'gcraccount@velero-gcp.iam.gserviceaccount.com'
+        credentials_json: '${{ secrets.GCR_SA_KEY }}'
         token_format: 'access_token'
 
     # This example uses the docker login action
